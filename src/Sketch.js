@@ -14,7 +14,9 @@ export default class Sketch {
     setup() {
         sk.createCanvas(sk.windowWidth, sk.windowHeight);
         sk.createButton('Toggle Play').mousePressed(() => this.togglePlay());
-        this.frequencySpectrum = new FrequencySpectrum(0, 0, sk.width / 2, sk.height / 2);
+        let position = sk.createVector(20, 20);
+        let size = sk.createVector(sk.width / 2, sk.height / 2);
+        this.frequencySpectrum = new FrequencySpectrum(position, size);
         this.sound.play();
     }
 
