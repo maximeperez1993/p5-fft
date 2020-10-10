@@ -1,4 +1,5 @@
 import '../lib/p5.sound';
+import FrequencySpectrum from "./FrequencySpectrum";
 
 export default class Sketch {
 
@@ -13,11 +14,13 @@ export default class Sketch {
     setup() {
         sk.createCanvas(sk.windowWidth, sk.windowHeight);
         sk.createButton('Toggle Play').mousePressed(() => this.togglePlay());
+        this.frequencySpectrum = new FrequencySpectrum(0, 0, sk.width / 2, sk.height / 2);
         this.sound.play();
     }
 
     draw() {
         sk.background(0);
+        this.frequencySpectrum.draw();
     }
 
     togglePlay() {
